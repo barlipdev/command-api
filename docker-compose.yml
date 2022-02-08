@@ -1,0 +1,15 @@
+version: 'latest'
+services:
+  app:
+    container_name: command_api
+    restart: always
+    build: .
+    ports:
+      - '8080:8080'
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - '27017:27017'
